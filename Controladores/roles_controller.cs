@@ -11,7 +11,7 @@ namespace Usuarios.Controladores
 {
     class roles_controller
     {
-        private roles_model roles_Model = new roles_model();
+        
         private readonly conexion cn = new conexion();
         public List<roles_model> todos() {
             var listaRoles = new List<roles_model>();

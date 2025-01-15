@@ -30,22 +30,22 @@ namespace Usuarios.Vistas
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnGuadar = new System.Windows.Forms.Button();
-            this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.btn_Eliminar = new System.Windows.Forms.Button();
-            this.btn_Editar = new System.Windows.Forms.Button();
-            this.btn_Salir = new System.Windows.Forms.Button();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_Contrasenia = new System.Windows.Forms.TextBox();
+            this.chbActivo = new System.Windows.Forms.CheckBox();
+            this.cmd_Roles = new System.Windows.Forms.ComboBox();
             this.txt_Repita = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmd_Roles = new System.Windows.Forms.ComboBox();
-            this.chbActivo = new System.Windows.Forms.CheckBox();
+            this.txt_Contrasenia = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.btn_Salir = new System.Windows.Forms.Button();
+            this.btn_Editar = new System.Windows.Forms.Button();
+            this.btn_Eliminar = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btnGuadar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lst_Usuarios = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,120 +66,31 @@ namespace Usuarios.Vistas
             this.panel1.Controls.Add(this.btn_Cancelar);
             this.panel1.Controls.Add(this.btnGuadar);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.lst_Usuarios);
             this.panel1.Location = new System.Drawing.Point(13, 14);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(916, 658);
             this.panel1.TabIndex = 0;
             // 
-            // listBox1
+            // chbActivo
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(578, 0);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(338, 658);
-            this.listBox1.TabIndex = 0;
+            this.chbActivo.AutoSize = true;
+            this.chbActivo.Location = new System.Drawing.Point(102, 473);
+            this.chbActivo.Name = "chbActivo";
+            this.chbActivo.Size = new System.Drawing.Size(131, 29);
+            this.chbActivo.TabIndex = 16;
+            this.chbActivo.Text = "checkBox1";
+            this.chbActivo.UseVisualStyleBackColor = true;
+            this.chbActivo.CheckedChanged += new System.EventHandler(this.chbActivo_CheckedChanged);
             // 
-            // label1
+            // cmd_Roles
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(120, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(213, 25);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Formulario de Usuarios";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnGuadar
-            // 
-            this.btnGuadar.Location = new System.Drawing.Point(3, 538);
-            this.btnGuadar.Name = "btnGuadar";
-            this.btnGuadar.Size = new System.Drawing.Size(106, 81);
-            this.btnGuadar.TabIndex = 2;
-            this.btnGuadar.Text = "Guardar";
-            this.btnGuadar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Cancelar
-            // 
-            this.btn_Cancelar.Location = new System.Drawing.Point(115, 538);
-            this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(106, 81);
-            this.btn_Cancelar.TabIndex = 3;
-            this.btn_Cancelar.Text = "Cancelar";
-            this.btn_Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Eliminar
-            // 
-            this.btn_Eliminar.Location = new System.Drawing.Point(227, 538);
-            this.btn_Eliminar.Name = "btn_Eliminar";
-            this.btn_Eliminar.Size = new System.Drawing.Size(106, 81);
-            this.btn_Eliminar.TabIndex = 4;
-            this.btn_Eliminar.Text = "Eliminar";
-            this.btn_Eliminar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Editar
-            // 
-            this.btn_Editar.Location = new System.Drawing.Point(339, 538);
-            this.btn_Editar.Name = "btn_Editar";
-            this.btn_Editar.Size = new System.Drawing.Size(106, 81);
-            this.btn_Editar.TabIndex = 5;
-            this.btn_Editar.Text = "Editar";
-            this.btn_Editar.UseVisualStyleBackColor = true;
-            // 
-            // btn_Salir
-            // 
-            this.btn_Salir.Location = new System.Drawing.Point(451, 538);
-            this.btn_Salir.Name = "btn_Salir";
-            this.btn_Salir.Size = new System.Drawing.Size(106, 81);
-            this.btn_Salir.TabIndex = 6;
-            this.btn_Salir.Text = "Salir";
-            this.btn_Salir.UseVisualStyleBackColor = true;
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(102, 147);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(392, 30);
-            this.txt_Nombre.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(97, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 31);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Nombre de Usuario";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(97, 192);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 31);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Contraseña";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(97, 368);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 25);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Rol";
-            // 
-            // txt_Contrasenia
-            // 
-            this.txt_Contrasenia.Location = new System.Drawing.Point(102, 226);
-            this.txt_Contrasenia.Name = "txt_Contrasenia";
-            this.txt_Contrasenia.Size = new System.Drawing.Size(392, 30);
-            this.txt_Contrasenia.TabIndex = 12;
+            this.cmd_Roles.FormattingEnabled = true;
+            this.cmd_Roles.Location = new System.Drawing.Point(102, 396);
+            this.cmd_Roles.Name = "cmd_Roles";
+            this.cmd_Roles.Size = new System.Drawing.Size(392, 33);
+            this.cmd_Roles.TabIndex = 15;
             // 
             // txt_Repita
             // 
@@ -193,27 +104,118 @@ namespace Usuarios.Vistas
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(97, 270);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(264, 31);
+            this.label6.Size = new System.Drawing.Size(211, 25);
             this.label6.TabIndex = 13;
             this.label6.Text = "Repita su Contraaseña";
             // 
-            // cmd_Roles
+            // txt_Contrasenia
             // 
-            this.cmd_Roles.FormattingEnabled = true;
-            this.cmd_Roles.Location = new System.Drawing.Point(102, 396);
-            this.cmd_Roles.Name = "cmd_Roles";
-            this.cmd_Roles.Size = new System.Drawing.Size(392, 33);
-            this.cmd_Roles.TabIndex = 15;
+            this.txt_Contrasenia.Location = new System.Drawing.Point(102, 226);
+            this.txt_Contrasenia.Name = "txt_Contrasenia";
+            this.txt_Contrasenia.Size = new System.Drawing.Size(392, 30);
+            this.txt_Contrasenia.TabIndex = 12;
             // 
-            // chbActivo
+            // label4
             // 
-            this.chbActivo.AutoSize = true;
-            this.chbActivo.Location = new System.Drawing.Point(102, 473);
-            this.chbActivo.Name = "chbActivo";
-            this.chbActivo.Size = new System.Drawing.Size(131, 29);
-            this.chbActivo.TabIndex = 16;
-            this.chbActivo.Text = "checkBox1";
-            this.chbActivo.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(97, 368);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 25);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Rol";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(97, 192);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 25);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Contraseña";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(97, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(180, 25);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Nombre de Usuario";
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(102, 147);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(392, 30);
+            this.txt_Nombre.TabIndex = 7;
+            // 
+            // btn_Salir
+            // 
+            this.btn_Salir.Location = new System.Drawing.Point(451, 538);
+            this.btn_Salir.Name = "btn_Salir";
+            this.btn_Salir.Size = new System.Drawing.Size(106, 81);
+            this.btn_Salir.TabIndex = 6;
+            this.btn_Salir.Text = "Salir";
+            this.btn_Salir.UseVisualStyleBackColor = true;
+            // 
+            // btn_Editar
+            // 
+            this.btn_Editar.Location = new System.Drawing.Point(339, 538);
+            this.btn_Editar.Name = "btn_Editar";
+            this.btn_Editar.Size = new System.Drawing.Size(106, 81);
+            this.btn_Editar.TabIndex = 5;
+            this.btn_Editar.Text = "Editar";
+            this.btn_Editar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Eliminar
+            // 
+            this.btn_Eliminar.Location = new System.Drawing.Point(227, 538);
+            this.btn_Eliminar.Name = "btn_Eliminar";
+            this.btn_Eliminar.Size = new System.Drawing.Size(106, 81);
+            this.btn_Eliminar.TabIndex = 4;
+            this.btn_Eliminar.Text = "Eliminar";
+            this.btn_Eliminar.UseVisualStyleBackColor = true;
+            // 
+            // btn_Cancelar
+            // 
+            this.btn_Cancelar.Location = new System.Drawing.Point(115, 538);
+            this.btn_Cancelar.Name = "btn_Cancelar";
+            this.btn_Cancelar.Size = new System.Drawing.Size(106, 81);
+            this.btn_Cancelar.TabIndex = 3;
+            this.btn_Cancelar.Text = "Cancelar";
+            this.btn_Cancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuadar
+            // 
+            this.btnGuadar.Location = new System.Drawing.Point(3, 538);
+            this.btnGuadar.Name = "btnGuadar";
+            this.btnGuadar.Size = new System.Drawing.Size(106, 81);
+            this.btnGuadar.TabIndex = 2;
+            this.btnGuadar.Text = "Guardar";
+            this.btnGuadar.UseVisualStyleBackColor = true;
+            this.btnGuadar.Click += new System.EventHandler(this.btnGuadar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(120, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(213, 25);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Formulario de Usuarios";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lst_Usuarios
+            // 
+            this.lst_Usuarios.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lst_Usuarios.FormattingEnabled = true;
+            this.lst_Usuarios.ItemHeight = 25;
+            this.lst_Usuarios.Location = new System.Drawing.Point(578, 0);
+            this.lst_Usuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lst_Usuarios.Name = "lst_Usuarios";
+            this.lst_Usuarios.Size = new System.Drawing.Size(338, 658);
+            this.lst_Usuarios.TabIndex = 0;
             // 
             // frmUsuarios
             // 
@@ -225,6 +227,7 @@ namespace Usuarios.Vistas
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmUsuarios";
             this.Text = "frmUsuarios";
+            this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -236,7 +239,7 @@ namespace Usuarios.Vistas
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button btnGuadar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lst_Usuarios;
         public System.Windows.Forms.Button btn_Salir;
         public System.Windows.Forms.Button btn_Editar;
         public System.Windows.Forms.Button btn_Eliminar;

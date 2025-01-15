@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Usuarios.Controladores;
+using Usuarios.Vistas;
 namespace Usuarios
 {
     public partial class login : Form
@@ -27,16 +28,10 @@ namespace Usuarios
                 MessageBox.Show("El usuario o la contrasenia son incorrectos");
             }
             else {
-                
-                /*
-                 * rol == admin  
-                 *          tiene acceso a todos los formularios
-                 * rol == medico
-                 *          solo tienes acceso a Pacientes e Hisotrias clinicas
-                 
-                 
-                 
-                 */
+
+                var menuGeneral = new MenuGeneral();
+                menuGeneral.Show();
+                this.Hide();
 
             }
         }
