@@ -32,13 +32,14 @@ namespace Usuarios.Controladores
                     {
                         while (lector.Read())
                         {
+                            
                             var usuario = new usuario_model {
-                               // createAt = Convert.ToDateTime(lector["createAt"].ToString()),
+                                //createAt = Convert.ToDateTime(lector["createAt"].ToString()),
                                 Detalle_Rol = lector["Detalle"].ToString(),
-                                //Disponibilidad = (int)lector["Disponibilidad"],
+                               Disponibilidad = (int)lector["Disponibilidad"],
                                Id_User = (int)lector["Id_User"],
                                 Password = lector["Password"].ToString(),
-                              //  Roles_id = (int)lector["Roles_id"],
+                               Roles_id = (int)lector["Roles_id"],
                                 //updateAt = Convert.ToDateTime(lector["updateAt"].ToString()),
                                 Username = lector["Username"].ToString()
                             };
@@ -66,13 +67,13 @@ namespace Usuarios.Controladores
                         if (!lector.Read()) return null;
                           var usuario = new usuario_model
                             {
-                                createAt = Convert.ToDateTime(lector["createAt"].ToString()),
+                                //createAt = Convert.ToDateTime(lector["createAt"].ToString()),
                                 Detalle_Rol = lector["Detalle"].ToString(),
                                 Disponibilidad = (int)lector["Disponibilidad"],
                                 Id_User = (int)lector["Id_User"],
                                 Password = lector["Password"].ToString(),
                                 Roles_id = (int)lector["Roles_id"],
-                                updateAt = Convert.ToDateTime(lector["updateAt"].ToString()),
+                                //updateAt = Convert.ToDateTime(lector["updateAt"].ToString()),
                                 Username = lector["Username"].ToString()
                             };
                         return usuario;
@@ -111,8 +112,9 @@ namespace Usuarios.Controladores
         public string actualizar(usuario_model usuario) {
             using (var conexion = cn.obtenerConexion())
             {
-                string cadena = $"update Usuarios set Username = @Username, Disponibilidad = @Disponibilidad, Password= @Disponibilidad, " +
-                    $"Roles_id = @Disponibilidad, updateAt = 'GETDATE()' where Id_User = @Id_User ";
+                string cadena = $"update Usuarios set Username = @Username, Disponibilidad = @Disponibilidad," +
+                    $" Password= @Password, " +
+                    $"Roles_id = @Roles_id where Id_User = @Id_User "; //, updateAt = 'GETDATE()'
                 using (var comando = new SqlCommand(cadena, conexion))
                 {
                     string contrasenia = encriptar.HashPassword(usuario.Password);

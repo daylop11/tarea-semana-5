@@ -96,6 +96,7 @@ namespace Usuarios.Vistas
             // 
             this.txt_Repita.Location = new System.Drawing.Point(102, 304);
             this.txt_Repita.Name = "txt_Repita";
+            this.txt_Repita.PasswordChar = '*';
             this.txt_Repita.Size = new System.Drawing.Size(392, 30);
             this.txt_Repita.TabIndex = 14;
             // 
@@ -112,6 +113,7 @@ namespace Usuarios.Vistas
             // 
             this.txt_Contrasenia.Location = new System.Drawing.Point(102, 226);
             this.txt_Contrasenia.Name = "txt_Contrasenia";
+            this.txt_Contrasenia.PasswordChar = '*';
             this.txt_Contrasenia.Size = new System.Drawing.Size(392, 30);
             this.txt_Contrasenia.TabIndex = 12;
             // 
@@ -157,6 +159,7 @@ namespace Usuarios.Vistas
             this.btn_Salir.TabIndex = 6;
             this.btn_Salir.Text = "Salir";
             this.btn_Salir.UseVisualStyleBackColor = true;
+            this.btn_Salir.Click += new System.EventHandler(this.btn_Salir_Click);
             // 
             // btn_Editar
             // 
@@ -166,6 +169,7 @@ namespace Usuarios.Vistas
             this.btn_Editar.TabIndex = 5;
             this.btn_Editar.Text = "Editar";
             this.btn_Editar.UseVisualStyleBackColor = true;
+            this.btn_Editar.Click += new System.EventHandler(this.btn_Editar_Click);
             // 
             // btn_Eliminar
             // 
@@ -175,6 +179,7 @@ namespace Usuarios.Vistas
             this.btn_Eliminar.TabIndex = 4;
             this.btn_Eliminar.Text = "Eliminar";
             this.btn_Eliminar.UseVisualStyleBackColor = true;
+            this.btn_Eliminar.Click += new System.EventHandler(this.btn_Eliminar_Click);
             // 
             // btn_Cancelar
             // 
@@ -184,6 +189,7 @@ namespace Usuarios.Vistas
             this.btn_Cancelar.TabIndex = 3;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btnGuadar
             // 
@@ -216,6 +222,7 @@ namespace Usuarios.Vistas
             this.lst_Usuarios.Name = "lst_Usuarios";
             this.lst_Usuarios.Size = new System.Drawing.Size(338, 658);
             this.lst_Usuarios.TabIndex = 0;
+            this.lst_Usuarios.DoubleClick += new System.EventHandler(this.lst_Usuarios_DoubleClick);
             // 
             // frmUsuarios
             // 

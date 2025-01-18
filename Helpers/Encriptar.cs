@@ -11,5 +11,10 @@ namespace Usuarios.Helpers
         public string HashPassword(string contrasenia) {
             return BCrypt.Net.BCrypt.HashPassword(contrasenia);
         }
+
+        public bool VerifyPassword(string pwdDBB, string pwdForm)
+        {
+            return BCrypt.Net.BCrypt.Verify(pwdDBB, pwdForm);
+        }
     }
 }

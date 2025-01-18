@@ -22,5 +22,11 @@ namespace Usuarios.Vistas
             var frm_Usuarios = new frmUsuarios();
             frm_Usuarios.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var frm_Reporte_Usuarios = new Reportes.ResporteUsuarios();
+            frm_Reporte_Usuarios.ShowDialog();
+        }
     }
 }
