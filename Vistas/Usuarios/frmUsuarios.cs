@@ -42,6 +42,7 @@ namespace Usuarios.Vistas
 
         public void cargaLista()
         {
+            // Cambio pendejo
             
             var listaUsuarios = usuariosController.todos();
 
