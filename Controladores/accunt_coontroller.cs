@@ -13,17 +13,22 @@ namespace Usuarios.Controladores
     {
         private usuario_model usuario_Model = new usuario_model();
         private readonly conexion cn = new conexion();
-        public usuario_model login(string Username, string Password) {
-                using (var conexion = cn.obtenerConexion())
+
+        public usuario_model login(string Username, string Password)
+        {
+            using (var conexion = cn.obtenerConexion())
+            {
+                string cadena = "SELECT * FROM Usuarios " +
+                               "INNER JOIN Roles ON Usuarios.Roles_id = Roles.Rol_Id " +
+                               "WHERE Usuarios.Username = @Username";
+
+                using (var comando = new SqlCommand(cadena, conexion))
                 {
-                    string cadena = $"select * from Usuarios " +
-                    $"inner join Roles on Usuarios.Roles_id = Roles.Rol_Id " +
-                    $"where Usuarios.Username = '{Username}'";
-                    using (var comando = new SqlCommand(cadena, conexion))
+                    comando.Parameters.Add(new SqlParameter("@Username", Username));
+                    conexion.Open();
+
+                    using (var lector = comando.ExecuteReader())
                     {
-                        conexion.Open();
-                        using (var lector = comando.ExecuteReader())
-                        {
                         if (lector.Read())
                         {
                             if (Password == lector["Password"].ToString())
@@ -37,17 +42,12 @@ namespace Usuarios.Controladores
                                     Detalle_Rol = lector["Detalle"].ToString(),
                                 };
                             }
-                            else {
-                                return new usuario_model();
-                            }
-                        }
-                        else {
-                            return new usuario_model();
-                        }
-                                
                         }
                     }
                 }
+            }
+
+            return new usuario_model();
         }
     }
 }

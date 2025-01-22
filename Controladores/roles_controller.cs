@@ -11,13 +11,16 @@ namespace Usuarios.Controladores
 {
     class roles_controller
     {
-        
         private readonly conexion cn = new conexion();
-        public List<roles_model> todos() {
+
+        public List<roles_model> todos()
+        {
             var listaRoles = new List<roles_model>();
+
             using (var conexion = cn.obtenerConexion())
             {
-                string cadena = "select * from roles";
+                string cadena = "SELECT * FROM roles";
+
                 using (var comando = new SqlCommand(cadena, conexion))
                 {
                     conexion.Open();
@@ -35,6 +38,7 @@ namespace Usuarios.Controladores
                     }
                 }
             }
+
             return listaRoles;
         }
     }

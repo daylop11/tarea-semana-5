@@ -12,11 +12,12 @@ using Usuarios.Modelos;
 
 namespace Usuarios.Vistas
 {
-    public partial class frmUsuarios : Form 
+    public partial class frmUsuarios : Form
     {
         private usuarios_controller usuariosController = new usuarios_controller();
         private roles_controller roles_Controller = new roles_controller();
         private usuario_model usuario_Model = new usuario_model();
+
         public frmUsuarios()
         {
             InitializeComponent();
@@ -37,26 +38,26 @@ namespace Usuarios.Vistas
 
             Disponibilidad();
             cargaLista();
-
         }
 
         public void cargaLista()
         {
-            // Cambio pendejo
-            
             var listaUsuarios = usuariosController.todos();
 
             lst_Usuarios.DataSource = listaUsuarios;
             lst_Usuarios.ValueMember = "Id_User";
             lst_Usuarios.DisplayMember = "Username";
         }
-        public void Disponibilidad() {
+
+        public void Disponibilidad()
+        {
             if (chbActivo.Checked == true)
             {
                 chbActivo.Text = "Usuario Activo";
             }
-            else { 
-                chbActivo.Text = "Usuario Innactivo";
+            else
+            {
+                chbActivo.Text = "Usuario Inactivo";
             }
         }
 
@@ -70,7 +71,7 @@ namespace Usuarios.Vistas
             var mensaje = "";
             if (txt_Contrasenia.Text != txt_Repita.Text)
             {
-                MessageBox.Show("Las contrasenias no son iguales");
+                MessageBox.Show("Las contraseñas no son iguales");
                 return;
             }
             if (usuario_Model.Id_User == 0)
@@ -84,37 +85,39 @@ namespace Usuarios.Vistas
                 };
                 mensaje = usuariosController.insertar(usuario_Model);
             }
-            else {
+            else
+            {
                 usuario_Model.Disponibilidad = (chbActivo.Checked == true ? 1 : 0);
                 usuario_Model.Password = txt_Contrasenia.Text;
                 usuario_Model.Roles_id = (int)cmd_Roles.SelectedValue;
                 usuario_Model.Username = txt_Nombre.Text;
                 mensaje = usuariosController.actualizar(usuario_Model);
             }
-                     
+
             if (mensaje == "ok")
             {
-                MessageBox.Show("Se guarrdo con exito");
+                MessageBox.Show("Se guardó con éxito");
                 cargaLista();
                 limpiar_cajas();
             }
-            else { 
-                MessageBox.Show("Ocurrio un error al guardar");
-
+            else
+            {
+                MessageBox.Show("Ocurrió un error al guardar");
             }
-
-
         }
 
         private void lst_Usuarios_DoubleClick(object sender, EventArgs e)
         {
             editar();
         }
+
         private void btn_Editar_Click(object sender, EventArgs e)
         {
             editar();
         }
-        public void editar() {
+
+        public void editar()
+        {
             if (lst_Usuarios.SelectedIndex == -1)
             {
                 MessageBox.Show("Elija a un usuario de la lista");
@@ -133,7 +136,8 @@ namespace Usuarios.Vistas
             limpiar_cajas();
         }
 
-        public void limpiar_cajas() {
+        public void limpiar_cajas()
+        {
             txt_Contrasenia.Text = "";
             txt_Nombre.Text = "";
             txt_Repita.Text = "";
@@ -150,12 +154,13 @@ namespace Usuarios.Vistas
             }
             if (usuariosController.eliminar((int)lst_Usuarios.SelectedValue) == "ok")
             {
-                MessageBox.Show("Se elimino con exito");
+                MessageBox.Show("Se eliminó con éxito");
                 cargaLista();
                 limpiar_cajas();
             }
-            else { 
-                MessageBox.Show("Ocurrio un error al eliminar, por favor intente en unas 10 horas hasta corregir el error");
+            else
+            {
+                MessageBox.Show("Ocurrió un error al eliminar, por favor intente en unas 10 horas hasta corregir el error");
             }
         }
 
